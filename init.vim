@@ -2,7 +2,7 @@ set nocompatible
 
 " enable python {{{
 
-let g:python3_host_prog='C:\Users\tcalv\AppData\Local\Programs\Python\Python36-32\python.exe'
+let g:python3_host_prog=expand('~\AppData\Local\Programs\Python\Python36-32\python.exe')
 let g:python_host_prog='C:\Python27\python.exe'
 
 " }}}
@@ -18,8 +18,11 @@ Plug 'Yggdroot/indentLine'
 Plug 'ervandew/supertab'
 Plug 'godlygeek/tabular'
 Plug 'itchyny/vim-cursorword'
+Plug 'jelera/vim-javascript-syntax'
+Plug 'leafgarland/typescript-vim'
 Plug 'majutsushi/tagbar'
 Plug 'oranget/vim-csharp'
+Plug 'pprovost/vim-ps1'
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
@@ -153,6 +156,8 @@ nmap - <Plug>(choosewin)
 
 " start searches in very magic mode
 nnoremap / /\v
+
+vnoremap <leader>s :sort<cr>
 
 nnoremap <leader>db :Denite buffer<cr>
 nnoremap <leader>df :Denite file<cr>
