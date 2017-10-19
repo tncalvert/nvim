@@ -11,31 +11,31 @@ let g:python_host_prog='C:\Python27\python.exe'
 
 call plug#begin('~\AppData\Local\nvim\plugged')
 
-"Plug 'ctrlpvim/ctrlp.vim'
 "Plug 'fsharp/vim-fsharp', { 'for': 'fsharp', 'do': 'install.cmd' }
 "Plug 'omnisharp/omnisharp-vim'
+
 Plug 'Yggdroot/indentLine'
 Plug 'ervandew/supertab'
 Plug 'godlygeek/tabular'
 Plug 'itchyny/vim-cursorword'
 Plug 'jelera/vim-javascript-syntax'
-Plug 'leafgarland/typescript-vim'
 Plug 'majutsushi/tagbar'
 Plug 'oranget/vim-csharp'
-Plug 'pprovost/vim-ps1'
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/syntastic'
+Plug 'sheerun/vim-polyglot'
 Plug 'shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'simnalamburt/vim-mundo'
 Plug 't9md/vim-choosewin'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'w0rp/ale'
 
 call plug#end()
 
@@ -113,6 +113,9 @@ set updatetime=500 " wait time in ms before fetching type/symbol information
 
 let g:fsharp_interactive_bin='C:\Program Files (x86)\Microsoft SDKs\F#\4.1\Framework\v4.0\fsi.exe'
 let g:fsharp_xbuild_path='C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\MSBuild.exe'
+
+" Enable ALE with vim-airline
+let g:airline#extensions#ale#enabled = 1
 
 " }}}
 
