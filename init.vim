@@ -14,7 +14,6 @@ call plug#begin('~\AppData\Local\nvim\plugged')
 "Plug 'fsharp/vim-fsharp', { 'for': 'fsharp', 'do': 'install.cmd' }
 "Plug 'omnisharp/omnisharp-vim'
 
-Plug 'Yggdroot/indentLine'
 Plug 'ervandew/supertab'
 Plug 'godlygeek/tabular'
 Plug 'itchyny/vim-cursorword'
@@ -26,6 +25,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'sheerun/vim-polyglot'
 Plug 'shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'simnalamburt/vim-mundo'
 Plug 't9md/vim-choosewin'
 Plug 'terryma/vim-multiple-cursors'
@@ -36,6 +36,7 @@ Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'w0rp/ale'
+Plug 'yggdroot/indentline'
 
 call plug#end()
 
@@ -135,6 +136,12 @@ nnoremap j gj
 nnoremap k gk
 vnoremap j gj
 vnoremap k gk
+
+" easier commands for switching windows
+nnoremap <c-h> <c-w>h
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-l> <c-w>l
 
 " kjk to exit insert and visual mode
 inoremap kjk <esc>
