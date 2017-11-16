@@ -26,6 +26,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'sheerun/vim-polyglot'
 Plug 'shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'shougo/echodoc.vim'
 Plug 'simnalamburt/vim-mundo'
 Plug 't9md/vim-choosewin'
 Plug 'terryma/vim-multiple-cursors'
@@ -72,6 +73,7 @@ set title
 set novisualbell
 set noerrorbells
 set noshowmatch " showmatch slows down OmniComplete
+set noshowmode " airline will display the mode
 
 set tabstop=4
 set expandtab
