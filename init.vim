@@ -29,7 +29,6 @@ Plug 'shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'shougo/echodoc.vim'
 Plug 'simnalamburt/vim-mundo'
 Plug 't9md/vim-choosewin'
-Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
