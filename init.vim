@@ -2,8 +2,7 @@ set nocompatible
 
 " enable python {{{
 
-let g:python3_host_prog=expand('~\AppData\Local\Programs\Python\Python36-32\python.exe')
-let g:python_host_prog='C:\Python27\python.exe'
+let g:python3_host_prog=expand('~\scoop\apps\python\current\python.exe')
 
 " }}}
 
@@ -21,6 +20,7 @@ Plug 'jelera/vim-javascript-syntax'
 Plug 'majutsushi/tagbar'
 Plug 'oranget/vim-csharp'
 Plug 'rafi/awesome-vim-colorschemes'
+Plug 'rust-lang/rust.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'sheerun/vim-polyglot'
