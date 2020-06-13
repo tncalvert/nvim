@@ -10,32 +10,41 @@ let g:python3_host_prog=expand('~\scoop\apps\python\current\python.exe')
 
 call plug#begin('~\AppData\Local\nvim\plugged')
 
-"Plug 'fsharp/vim-fsharp', { 'for': 'fsharp', 'do': 'install.cmd' }
-"Plug 'omnisharp/omnisharp-vim'
-
+" Enable completion using the tab key.
 Plug 'ervandew/supertab'
+" Provides the :Tab(ularize) command to align text.
 Plug 'godlygeek/tabular'
+" Underlines the all instances of the current word.
 Plug 'itchyny/vim-cursorword'
-Plug 'jelera/vim-javascript-syntax'
-Plug 'majutsushi/tagbar'
-Plug 'oranget/vim-csharp'
+" A bunch of colorschemes.
 Plug 'rafi/awesome-vim-colorschemes'
-Plug 'rust-lang/rust.vim'
-Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree'
+" A helper for some simple comment-related activities.
+Plug 'preservim/nerdcommenter'
+" A file explorer.
+Plug 'preservim/nerdtree'
+" Provides some level of support for a lot of languages. Configuration
+" for each is left to the packaged plugin.
 Plug 'sheerun/vim-polyglot'
+" A sort of fuzzy search plugin. Provides an interface to display information
+" from various sources and operate on them. Default sources allow things
+" like listing buffers or files.
 Plug 'shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
+" A completion engine.
+" NOTE: Currently not enabled.
+" TODO: Investigate this more. I'm sure I'm not using this well.
 Plug 'shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'shougo/echodoc.vim'
+" A visualization of the undo tree.
 Plug 'simnalamburt/vim-mundo'
+" Small helper that allows jumping between windows.
 Plug 't9md/vim-choosewin'
-Plug 'tpope/vim-dispatch'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-repeat'
+" Provides some advanced functionality for working with 'surrounding' text
+" objects.
 Plug 'tpope/vim-surround'
+" Provides a nicer modeline, plus some themes.
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
+" Simple helper that displays a marker after each indentation level.
 Plug 'yggdroot/indentline'
 
 call plug#end()
@@ -61,61 +70,60 @@ endif
 
 " settings {{{
 
-set hidden
-set nowrap
-set number
-set numberwidth=2
-set sidescroll=8
-set laststatus=2
-set ruler
-set title
-set novisualbell
-set noerrorbells
-set noshowmatch " showmatch slows down OmniComplete
-set noshowmode " airline will display the mode
+set hidden        " marks a buffer as hidden when abandoned, instead of unloading it
+set nowrap        " do not wrap lines
+set number        " display line numbers
+set numberwidth=2 " always use at least 2 columns for line numbers
+set sidescroll=16 " when scrolling off the end of the screen, adjust view by this many columns
+set laststatus=2  " always show the status bar
+set ruler         " show the line and column number in the status bar
+set title         " set the title of the window to be the current file and path
+set novisualbell  " no visual flash for error messages
+set noerrorbells  " no error for error messsages
+set noshowmatch   " do not show matching brackets (pretty laggy)
+set noshowmode    " do not show the current mode (airline will handle that)
 
-set tabstop=4
-set expandtab
-set shiftwidth=4
-set shiftround
-set smarttab
-set autoindent
+set tabstop=4    " tab is 4 spaces by default
+set expandtab    " convert tabs to spaces
+set shiftwidth=4 " shift text by 4 spaces
+set shiftround   " round text shifts to the nearest multiple of shiftwidth
+set smarttab     " some intelligent handling of tabs when adding or deleting
+set autoindent   " when opening a new line, copy the indent from the current line
 
-set ignorecase
-set smartcase
-set incsearch
+set ignorecase " default is case-insensitive searching
+set smartcase  " if the search string contains capital letters, make it case-sensitive
+set incsearch  " incrementally update when searching to display the current match
 
-" default :split and :vsplit windows to open below and right
-set splitbelow
-set splitright
+set splitbelow " :split should open below
+set splitright " :vsplit should open to the right
 
-set list
-set listchars=tab:\ \ ,trail:.,extends:#,nbsp:.
-set backspace=indent,eol,start
-set wildignore=*.swp,*.bak,*.pyc,*.class
+set list                                        " display some normally invisible characters
+set listchars=tab:\ \ ,trail:.,extends:#,nbsp:. " display tabs, trailing spaces, line wraps, and no-break spaces
+set backspace=indent,eol,start                  " backspace can move through lines
+set wildignore=*.swp,*.bak,*.pyc,*.class        " wildcards to ignore when expanding globs
 
-set history=10000 " remember 10000 commands and search history
+set history=10000    " remember 10000 commands and search history
 set undolevels=10000 " use many levels of undos
 
-set nobackup
+set nobackup " disable file backup
 
-"let g:SuperTabDefaultCompletionType='context'
-"let g:SuperTabContextDefaultCompletionType="<c-x><c-o>"
-"let g:SuperTabDefaultCompletionTypeDiscovery=["&omnifunc:<c-x><c-o>","&completefunc:<c-x><c-n>"]
-"let g:SuperTabClosePreviewOnPopupClose=1
+" Make the Mundo window a little larger
+let g:mundo_width = 60
+let g:mundo_preview_height = 25
 
-"let g:OmniSharp_server_type='roslyn' " use omnisharp-roslyn
-"let g:OmniSharp_timeout=1 " timeout in seconds to wait for a response from OmniSharp
-"set completeopt=longest,menuone,preview "don't autoselect first item in omnicomplete, show if only one item (for preview)
-"let g:omnicomplete_fetch_documentation=1 " fetch full documentation during OmniComplete requests
+" Deoplete configuration
+"let g:deoplete#enable_at_startup = 1
+"call deoplete#custom#option('smart_case', v:true)
+"call deoplete#custom#option('sources', {
+    "\ '_': ['buffer']
+"\})
 
-"let g:syntastic_cs_checkers=['code_checker'] " use with omnisharp-roslyn
+" Denite settings
+call denite#custom#var('file/rec', 'command',
+    \ ['rg', '--files', '--glob', '!.git', '--color', 'never'])
 
-set updatetime=500 " wait time in ms before fetching type/symbol information
-
-let g:fsharp_interactive_bin='C:\Program Files (x86)\Microsoft SDKs\F#\4.1\Framework\v4.0\fsi.exe'
-let g:fsharp_xbuild_path='C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\MSBuild.exe'
-
+" ALE configuration
+let g:ale_virtualtext_cursor = 1
 " Enable ALE with vim-airline
 let g:airline#extensions#ale#enabled = 1
 
@@ -156,6 +164,7 @@ nnoremap <leader><c-u> viwUe
 nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
 nnoremap <leader>' viw<esc>a'<esc>hbi'<esc>lel
 
+" open a new split of the current window
 nnoremap <leader>olv :execute "vsplit " . bufname("#")<cr>
 nnoremap <leader>olh :execute "split " . bufname("#")<cr>
 
@@ -163,57 +172,33 @@ nnoremap <leader>olh :execute "split " . bufname("#")<cr>
 nnoremap <silent> <leader>w :match Error /\v\s+$/<cr>
 nnoremap <silent> <leader>W :match none<cr>
 
+" use '-' as the trigger for the choosewin plugin
 nmap - <Plug>(choosewin)
 
 " start searches in very magic mode
 nnoremap / /\v
 
+" sort selected lines
 vnoremap <leader>s :sort<cr>
 
+" open/close NERDTree
+nnoremap <leader>nt :NERDTreeToggle<cr>
+
+" Denite key mappings
 nnoremap <leader>db :Denite buffer<cr>
 nnoremap <leader>df :Denite file<cr>
-nnoremap <leader>dfr :Denite file_rec<cr>
 
+" Mundo key mappings
 nnoremap <leader>mt :MundoToggle<cr>
-
-noremap <leader><space> :OmniSharpGetCodeActions<cr> " contextual code actions (needs CtrlP)
-"vnoremap <leader><space> :call OmniSharp#GetCodeActions('visual')<cr> " run code actions with text selected to extract method
-
-"" rename with dialog
-"nnoremap <leader>nm :OmniSharpRename<cr>
-"nnoremap <F2> :OmniSharpRename<cr>
-"" rename without dialog - with cursor on the symbol to rename... ':Rename newname'
-"command! -nargs=1 Rename :call OmniSharp#RenameTo("<args>")
-
-"nnoremap <leader>rl :OmniSharpReloadSolution<cr>
-"nnoremap <leader>cf :OmniSharpCodeFormat<cr>
-"nnoremap <leader>th :OmniSharpHighlightTypes<cr> "add syntax highlighting for types and interfaces
 
 " }}}
 
 " autocmds {{{
 
-augroup filetype_html
-    autocmd!
-    autocmd filetype html nnoremap <buffer> <localleader>c I<!--<esc>A--><esc>
-augroup END
-
-augroup filetype_markdown
-    autocmd!
-    autocmd filetype markdown onoremap ih :<c-u>execute "normal! ?^[=-]\\{2,}$\r:nohlsearch\rkvg_"<cr>
-    autocmd filetype markdown onoremap ah :<c-u>execute "normal! ?^[=-]\\{2,}$\r:nohlsearch\rg_vk0"<cr>
-augroup END
-
 augroup filetype_vim
     autocmd!
     autocmd filetype vim setlocal foldmethod=marker
     autocmd filetype vim nnoremap <silent> <buffer> <localleader>st :source %<cr>
-augroup END
-
-augroup filetype_c
-    autocmd!
-    " NOTE(tim): space at the end of the following line is intentional
-    autocmd filetype c nnoremap <buffer> <localleader>cn A// NOTE(tim): 
 augroup END
 
 " https://unix.stackexchange.com/a/383044
@@ -226,33 +211,21 @@ autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checkti
 autocmd FileChangedShellPost *
   \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
 
-"augroup omnisharp_commands
-    "autocmd!
-
-    "autocmd FileType cs setlocal omnifunc=OmniSharp#Complete " set auto complete to OmniSharp
-    "autocmd FileType cs nnoremap <leader>b :wa!<cr>:OmniSharpBuildAsync<cr> " initiate async build (requires vim-dispatch)
-    "autocmd BufEnter,TextChanged,InsertLeave *.cs SyntasticCheck " auto-check sytax
-    "autocmd CursorHold *.cs call OmniSharp#TypeLookupWithoutDocumentation() " show type info when cursor stops moving
-
-    "autocmd FileType cs nnoremap gd :OmniSharpGotoDefinition<cr>
-    "autocmd FileType cs nnoremap <leader>fi :OmniSharpFindImplementations<cr>
-    "autocmd FileType cs nnoremap <leader>ft :OmniSharpFindType<cr>
-    "autocmd FileType cs nnoremap <leader>fs :OmniSharpFindSymbol<cr>
-    "autocmd FileType cs nnoremap <leader>fu :OmniSharpFindUsages<cr>
-    "autocmd FileType cs nnoremap <leader>fm :OmniSharpFindMembers<cr>
-
-    "autocmd FileType cs nnoremap <leader>x :OmniSharpFixIssues<cr>
-    "autocmd FileType cs nnoremap <leader>fx :OmniSharpFixUsings<cr>
-    "autocmd FileType cs nnoremap <leader>tt :OmniSharpTypeLookup<cr>
-    "autocmd FileType cs nnoremap <leader>dc :OmniSharpDocumentation<cr>
-
-    "autocmd FileType cs nnoremap <C-K> :OmniSharpNavigateUp<cr>
-    "autocmd FileType cs nnoremap <C-J> :OmniSharpNavigateDown<cr>
-"augroup END
+" Denite autocmd to configure key mappings within the Denite window
+autocmd FileType denite call s:denite_settings()
+function! s:denite_settings() abort
+    nnoremap <silent><buffer><expr> <CR> denite#do_map('do_action')
+    nnoremap <silent><buffer><expr> d denite#do_map('do_action', 'delete')
+    nnoremap <silent><buffer><expr> p denite#do_map('do_action', 'preview')
+    nnoremap <silent><buffer><expr> q denite#do_map('quit')
+    nnoremap <silent><buffer><expr> i denite#do_map('open_filter_buffer')
+    nnoremap <silent><buffer><expr> <Space> denite#do_map('toggle_select').'j'
+endfunction
 
 " }}}
 
 " functions {{{
+
 nnoremap <silent> <leader>f :call FoldColumnToggle()<cr>
 function! FoldColumnToggle()
     if &foldcolumn
@@ -275,6 +248,7 @@ function! s:QuickfixToggle()
         let s:quickfix_is_open = 1
     endif
 endfunction
+
 " }}}
 
 " autocorrect {{{
