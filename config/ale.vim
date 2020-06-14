@@ -6,3 +6,5 @@ let g:ale_linters = {'rust': ['analyzer','cargo']}
 let g:ale_fixers = {'rust': ['rustfmt']}
 let g:ale_completion_enabled = 1
 
+imap <C-Space> <Plug>(ale_complete)
+
