@@ -1,6 +1,8 @@
 call denite#custom#var('file/rec', 'command',
     \ ['rg', '--files', '--glob', '!.git', '--color', 'never'])
 
+call denite#custom#option('default', 'split', 'floating')
+
 nnoremap <leader>db :Denite buffer<cr>
 nnoremap <leader>df :Denite file<cr>
 
