@@ -91,11 +91,6 @@ function! s:set_default_working_dir() abort
     end
 endfunction
 
-augroup filetype_vim
-    autocmd!
-    autocmd FileType vim setlocal foldmethod=marker
-augroup END
-
 augroup file_reload
     autocmd!
     " https://unix.stackexchange.com/a/383044

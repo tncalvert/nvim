@@ -6,6 +6,7 @@ let s:config_dir = expand('~/AppData/Local/nvim/config')
 let s:config_files = [
         \'plugs.vim',
         \'common.vim',
+        \'filetypes.vim',
         \'floaterm.vim',
         \'startify.vim',
         \'mundo.vim',
