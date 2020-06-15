@@ -45,6 +45,10 @@ set undolevels=10000 " use many levels of undos
 
 set nobackup " disable file backup
 
+set clipboard=unnamedplus " use the system clipboard for default paste/yank
+
+set shortmess+=c " don't display completion messages
+
 let mapleader="\<space>"
 let maplocalleader="\\"
 
