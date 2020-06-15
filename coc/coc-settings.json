@@ -1,2 +1,3 @@
 {
+    "rust-analyzer.serverPath": "~/_programs/rust-analyzer/rust-analyzer.exe"
 }

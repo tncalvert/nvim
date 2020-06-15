@@ -6,6 +6,8 @@ call plug#begin('~\AppData\Local\nvim\plugged')
 
 " Provides linting and code analysis. Can be configured to use LSP.
 "Plug 'dense-analysis/ale'
+" Some json formatting
+Plug 'elzr/vim-json'
 " Provides the :Tab(ularize) command to align text.
 Plug 'godlygeek/tabular'
 " Underlines the all instances of the current word.

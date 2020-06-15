@@ -6,7 +6,7 @@ augroup END
 augroup filetype_json
     autocmd!
     autocmd FileType json syntax match Comment +\/\/.\+$+
-
-    set conceallevel=0
 augroup END
+
+let g:vim_json_syntax_conceal = 0
 
