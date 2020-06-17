@@ -108,7 +108,7 @@ augroup file_reload
     \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
 augroup END
 
-nnoremap <silent> <leader>f :call <SID>FoldColumnToggle()<cr>
+nnoremap <silent> <leader>tf :call <SID>FoldColumnToggle()<cr>
 function! s:FoldColumnToggle()
     if &foldcolumn
         setlocal foldcolumn=0

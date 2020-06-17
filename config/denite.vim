@@ -3,8 +3,8 @@ call denite#custom#var('file/rec', 'command',
 
 call denite#custom#option('default', 'split', 'floating')
 
-nnoremap <leader>db :Denite buffer<cr>
-nnoremap <leader>df :Denite file<cr>
+nnoremap <leader>b :Denite buffer<cr>
+nnoremap <leader>f :Denite file<cr>
 
 function! s:denite_settings() abort
     nnoremap <silent><buffer><expr> <CR> denite#do_map('do_action')
