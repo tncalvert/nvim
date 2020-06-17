@@ -15,3 +15,9 @@ command! CocUpdateAll call s:coc_update_all()
 inoremap <silent><expr> <c-space> coc#refresh()
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
+nnoremap <silent> <c-.> :CocAction<cr>
+vnoremap <silent> <c-.> :CocAction<cr>
+
+nnoremap <silent> <leader>cd :CocDiagnostics<cr>
+vnoremap <silent> <leader>cd :CocDiagnostics<cr>
+
