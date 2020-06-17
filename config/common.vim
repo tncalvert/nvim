@@ -108,8 +108,8 @@ augroup file_reload
     \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
 augroup END
 
-nnoremap <silent> <leader>f :call FoldColumnToggle()<cr>
-function! FoldColumnToggle()
+nnoremap <silent> <leader>f :call <SID>FoldColumnToggle()<cr>
+function! s:FoldColumnToggle()
     if &foldcolumn
         setlocal foldcolumn=0
     else
@@ -118,16 +118,20 @@ function! FoldColumnToggle()
 endfunction
 
 nnoremap <silent> <leader>q :call <SID>QuickfixToggle()<cr>
-let s:quickfix_is_open = 0
 function! s:QuickfixToggle()
-    if s:quickfix_is_open
+    if get(getqflist({'winid':0}), 'winid', 0)
         cclose
-        let s:quickfix_is_open = 0
-        execute s:quickfix_return_to_window . "wincmd w"
     else
-        let s:quickfix_return_to_window = winnr()
         copen
-        let s:quickfix_is_open = 1
+    endif
+endfunction
+
+nnoremap <silent> <leader>l :call <SID>LocationListToggle()<cr>
+function! s:LocationListToggle()
+    if get(getloclist(0, {'winid':0}), 'winid', 0)
+        lclose
+    else
+        lopen
     endif
 endfunction
 
