@@ -22,5 +22,5 @@ nnoremap <silent> <leader>cd :CocDiagnostics<cr>
 vnoremap <silent> <leader>cd :CocDiagnostics<cr>
 
 nnoremap <silent> <c-,> :call CocAction('doHover')<cr>
-nnoremap <silent> <leader>gd :call CocAction('jumpDefinition')<cr>
+nnoremap <silent> <leader>gd :call CocAction('jumpDefinition', 'vsplit')<cr>
 
