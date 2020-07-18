@@ -75,8 +75,8 @@ inoremap kjk <esc>
 vnoremap kjk <esc>
 
 " highlight trailing spaces as error
-nnoremap <silent> <leader>w :match Error /\v\s+$/<cr>
-nnoremap <silent> <leader>W :match none<cr>
+nnoremap <silent> <leader>se :match Error /\v\s+$/<cr>
+nnoremap <silent> <leader>sE :match none<cr>
 
 " mappings for terminal
 tnoremap <Esc> <C-\><C-n>
