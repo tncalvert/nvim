@@ -33,6 +33,7 @@ Plug 't9md/vim-choosewin'
 " Provides some advanced functionality for working with 'surrounding' text
 " objects.
 Plug 'tpope/vim-surround'
+Plug 'vimwiki/vimwiki'
 " Provides a nicer modeline, plus some themes.
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
