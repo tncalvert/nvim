@@ -12,6 +12,9 @@ Plug 'elzr/vim-json'
 Plug 'godlygeek/tabular'
 " Underlines the all instances of the current word.
 Plug 'itchyny/vim-cursorword'
+" fzf and the vim plugin
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
 " Provides a simple startup screen that provides access to recent files.
 Plug 'mhinz/vim-startify'
 " Intellisense and LSP support.
@@ -25,7 +28,7 @@ Plug 'rafi/awesome-vim-colorschemes'
 " A sort of fuzzy search plugin. Provides an interface to display information
 " from various sources and operate on them. Default sources allow things
 " like listing buffers or files.
-Plug 'shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
+"Plug 'shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
 " A visualization of the undo tree.
 Plug 'simnalamburt/vim-mundo'
 " Small helper that allows jumping between windows.

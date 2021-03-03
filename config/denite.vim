@@ -5,6 +5,7 @@ call denite#custom#option('default', 'split', 'floating')
 
 nnoremap <leader>b :Denite buffer<cr>
 nnoremap <leader>f :Denite file<cr>
+nnoremap <leader>rf :Denite file/rec<cr>
 
 function! s:denite_settings() abort
     nnoremap <silent><buffer><expr> <CR> denite#do_map('do_action')

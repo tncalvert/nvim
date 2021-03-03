@@ -11,7 +11,7 @@ let s:config_files = [
         \'floaterm',
         \'startify',
         \'mundo',
-        \'denite',
+        \'fzf',
         \'choosewin',
         \'nerdtree',
         \'coc',
