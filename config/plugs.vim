@@ -40,6 +40,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'voldikss/vim-floaterm'
 " Simple helper that displays a marker after each indentation level.
 Plug 'yggdroot/indentline'
+" Support for zig
+Plug 'ziglang/zig.vim'
 
 "
 " Language plugins
