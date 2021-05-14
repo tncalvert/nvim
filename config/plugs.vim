@@ -5,7 +5,7 @@ call plug#begin('~\AppData\Local\nvim\plugged')
 "
 
 " Provides linting and code analysis. Can be configured to use LSP.
-"Plug 'dense-analysis/ale'
+Plug 'dense-analysis/ale'
 " Some json formatting
 Plug 'elzr/vim-json'
 " Provides the :Tab(ularize) command to align text.
@@ -17,18 +17,12 @@ Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 " Provides a simple startup screen that provides access to recent files.
 Plug 'mhinz/vim-startify'
-" Intellisense and LSP support.
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " A helper for some simple comment-related activities.
 Plug 'preservim/nerdcommenter'
 " A file explorer.
 Plug 'preservim/nerdtree'
 " A bunch of colorschemes.
 Plug 'rafi/awesome-vim-colorschemes'
-" A sort of fuzzy search plugin. Provides an interface to display information
-" from various sources and operate on them. Default sources allow things
-" like listing buffers or files.
-"Plug 'shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
 " A visualization of the undo tree.
 Plug 'simnalamburt/vim-mundo'
 " Small helper that allows jumping between windows.

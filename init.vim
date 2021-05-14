@@ -1,7 +1,5 @@
 set nocompatible
 
-let g:python3_host_prog=expand('~\scoop\apps\python\current\python.exe')
-
 let s:config_dir = expand('~/AppData/Local/nvim/config')
 let s:config_files = [
         \'plugs',
@@ -14,8 +12,8 @@ let s:config_files = [
         \'fzf',
         \'choosewin',
         \'nerdtree',
-        \'coc',
-        \'autocorrect'
+        \'autocorrect',
+        \'ale'
     \]
 
 for s:file in s:config_files
