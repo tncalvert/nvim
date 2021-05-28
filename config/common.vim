@@ -7,19 +7,20 @@ if &t_Co >= 256 || has("gui_running")
     let g:airline_theme='gruvbox'
 endif
 
-set hidden        " marks a buffer as hidden when abandoned, instead of unloading it
-set nowrap        " do not wrap lines
-set number        " display line numbers
-set numberwidth=2 " always use at least 2 columns for line numbers
-set scrolloff=8   " when scrolling off the bottom/top of the screen adjust view by this many rows
-set sidescroll=8  " when scrolling off the end of the screen, adjust view by this many columns
-set laststatus=2  " always show the status bar
-set ruler         " show the line and column number in the status bar
-set title         " set the title of the window to be the current file and path
-set novisualbell  " no visual flash for error messages
-set noerrorbells  " no error for error messsages
-set noshowmatch   " do not show matching brackets (pretty laggy)
-set noshowmode    " do not show the current mode (airline will handle that)
+set hidden           " marks a buffer as hidden when abandoned, instead of unloading it
+set nowrap           " do not wrap lines
+set number           " display line numbers
+set numberwidth=2    " always use at least 2 columns for line numbers
+set scrolloff=8      " when scrolling off the bottom/top of the screen adjust view by this many rows
+set sidescroll=8     " when scrolling off the end of the screen, adjust view by this many columns
+set laststatus=2     " always show the status bar
+set ruler            " show the line and column number in the status bar
+set title            " set the title of the window to be the current file and path
+set novisualbell     " no visual flash for error messages
+set noerrorbells     " no error for error messsages
+set noshowmatch      " do not show matching brackets (pretty laggy)
+set noshowmode       " do not show the current mode (airline will handle that)
+set concealcursor=nc " hide concealed characters in normal/command mode, show in insert and visual
 
 set tabstop=4    " tab is 4 spaces by default
 set expandtab    " convert tabs to spaces

@@ -6,6 +6,7 @@ let s:config_files = [
         \'common',
         \'gui',
         \'filetypes',
+        \'indentline',
         \'floaterm',
         \'startify',
         \'mundo',
@@ -13,7 +14,8 @@ let s:config_files = [
         \'choosewin',
         \'nerdtree',
         \'autocorrect',
-        \'ale'
+        \'ale',
+        \'overrides'
     \]
 
 for s:file in s:config_files
